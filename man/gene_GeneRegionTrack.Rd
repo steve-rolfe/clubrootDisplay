@@ -4,14 +4,14 @@
 \alias{gene_GeneRegionTrack}
 \title{Creates a gene region track of the selected gene using a model and sql database}
 \usage{
-gene_GeneRegionTrack(my_gene, my_model, sql_database)
+gene_GeneRegionTrack(my_gene, sql_database, my_model = NULL)
 }
 \arguments{
 \item{my_gene}{gene name}
 
-\item{my_model}{the sql database name in which the gene is found}
-
 \item{sql_database}{A list of sql_databases created by create_sql_database()}
+
+\item{my_model}{the sql database name in which the gene is found}
 }
 \value{
 a gene region track suitable for display with plotTracks
