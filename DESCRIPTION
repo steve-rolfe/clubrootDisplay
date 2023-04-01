@@ -1,0 +1,21 @@
+Package: clubrootDisplay
+Title: Displays alternative models for clubroot genes
+Version: 0.0.0.9000
+Authors@R: 
+    person("Stephen", "Rolfe", , "s.rolfe@sheffield.ac.uk", role = c("aut", "cre"))
+Description: A library for displaying, and comparing, gene clubroot gene models. All gene models are related 
+    to the reference genome GCA_900303365.2. Evidence underpinning these models, and InterProScan domains
+	are also displayed.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    DESeq2 (>= 1.38.3),
+    GenomicFeatures (>= 1.50.4),
+    Gviz (>= 1.42.1),
+    maditr (>= 0.8.3),
+    plyr (>= 1.8.8),
+    reshape2 (>= 1.4.4),
+    rtracklayer (>= 1.58.0)
