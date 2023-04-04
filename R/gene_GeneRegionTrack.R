@@ -4,8 +4,9 @@
 #' @param sql_database A list of sql_databases created by create_sql_database()
 #' @return a gene region track suitable for display with plotTracks
 #' @export
-gene_GeneRegionTrack<-function(my_gene,my_model,sql_database){
-  options(ucscChromosomeNames=FALSE)
+gene_GeneRegionTrack<-function(my_gene,sql_database,my_model=NULL){
+  if(is.null(my_model)){my_model=get_model_from_gene(my_gene,sql_database)}
+
   all_transcripts<-get_all_transcripts(sql_database)
   my_loc<-all_transcripts[grep(my_gene,all_transcripts$gene),]
 
