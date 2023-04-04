@@ -17,7 +17,7 @@ Set up a location for your files
 #then put their location here. The files are big, so you may want to store them locally
 #The originals are in Z:/rolfe_group1/Shared/Pb_illumina/bam_files
 
-SRA_Location<-"D:/Pb_illumina/bam_files"
+SRA_Location<-"Z:/rolfe_group1/Shared/Clubroot_Leverhulme/Pb_illumina/bam_files"
 ```
 Load the libraries
 I have placed clubrootDisplay on github
