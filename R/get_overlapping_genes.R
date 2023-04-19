@@ -5,9 +5,11 @@
 #' @export
 get_overlapping_genes<-function(my_gene,sql_database){
   my_loc<-get_model_from_gene(my_gene,sql_database)
+  my_exons<-GenomicFeatures::exonsBy(sql_database[[my_loc]],by="tx",use.names=TRUE)
+  my_gene_fullname<-grep(my_gene,names(my_exons))
 
   #get the exons which match the gene
-  my_gene.selected<-GenomicFeatures::exonsBy(sql_database[[my_loc]],by="tx",use.names=TRUE)[my_gene]
+  my_gene.selected<-my_exons[my_gene_fullname]
   #it returns a list - so unlist and give the transcript a name
   my_gene.selected<-unlist(my_gene.selected)
   elementMetadata(my_gene.selected)$transcript=names(my_gene.selected)
