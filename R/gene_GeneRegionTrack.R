@@ -8,13 +8,11 @@ gene_GeneRegionTrack<-function(my_gene,sql_database,my_model=NULL){
   if(is.null(my_model)){my_model=get_model_from_gene(my_gene,sql_database)}
 
   all_transcripts<-get_all_transcripts(sql_database)
-  my_loc<-all_transcripts[grep(my_gene,all_transcripts$gene),]
+  my_loc<-all_transcripts[my_gene==all_transcripts$gene,]
 
   #get the exons which match the gene
-  #sometimes the names have additions so we identify these
-  my_exons<-GenomicFeatures::exonsBy(sql_database[[my_model]],by="tx",use.names=TRUE)
-  my_gene_fullname<-grep(my_gene,names(my_exons))
-  my_gene.selected<-my_exons[my_gene_fullname]
+  my_exons<-GenomicFeatures::exonsBy(sql_database[[my_model]],by="gene")
+  my_gene.selected<-my_exons[my_gene]
   #it returns a list - so unlist and give the transcript a name
   my_gene.selected<-unlist(my_gene.selected)
   elementMetadata(my_gene.selected)$transcript=names(my_gene.selected)

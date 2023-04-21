@@ -9,7 +9,7 @@ load_clubroot_genome<-function(location=NULL){
   #A location will search the directory for the genome fasta file and load that instead
   if(is.null(location)){
     Pb314v2_file=list.files(path=system.file("extdata", package = "clubrootDisplay"),
-                            pattern="GCA_900303365.2_pb314_genomic.fna",
+                            pattern="GCA_900303365.2_pb314_genomic.fna$",
                             full.names = TRUE)
   } else {
     Pb314v2_file=location

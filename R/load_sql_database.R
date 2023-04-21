@@ -9,7 +9,7 @@ load_sql_database<-function(location){
       stop(paste0("Directory ",location," does not exist"))
     }
   }
-  sql_database_filenames<-list.files(path=location,pattern="*.sqLite",full.names = TRUE)
+  sql_database_filenames<-list.files(path=location,pattern="*.sqLite$",full.names = TRUE)
   sql_database<-lapply(sql_database_filenames,function(f) AnnotationDbi::loadDb(f))
 
   #and name them
